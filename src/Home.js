@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import './Home.css';
 import Axios from 'axios';
-// import { Search } from '@mui/icons-material';
+import Recipe from './components/Recipe';
+import { v4 as uuidv4 } from 'uuid';
 
 function Home() {
 
@@ -71,9 +72,7 @@ function Home() {
                 
                 <div className='cont'>
                 <div className='recipes'>
-                    {recipes !== [] && recipes.map(recipe => <h2>{recipe.recipe.label}
-
-                    </h2>)}
+                    {recipes !== [] && recipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe}/>)}
                 </div>
                 </div>
 

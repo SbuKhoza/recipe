@@ -1,11 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const Recipe = () => {
+const Recipe = ({ recipe }) => {
+  const { label, image, url, ingredients } = recipe.recipe;
   return (
-    <div>
-      Recipe
+    <div className='recipe'>
+      <h2>{label}</h2>
+      <img src={image} alt={label}></img>
+      <a href={url} target='_blank' rel='noopener noreferrer'>
+        View Recipe
+      </a>
+      <button>Ingredients</button>
     </div>
-  )
-}
+  );
+};
 
-export default Recipe
+export default Recipe;
