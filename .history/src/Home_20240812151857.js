@@ -16,7 +16,6 @@ function Home() {
     const getData = async () => {
         const result = await Axios.get(url);
         console.log(result);
-        setQuery('')
     }
 
     const onSubmit = (event) => {
@@ -45,7 +44,7 @@ function Home() {
                 </ul>
 
                 <form className='searchform' onSubmit={onSubmit}>
-                    <input type='text' className='searchbox' placeholder='Search for your next favorite' onChange={onChange} value={query} />
+                    <input type='text' className='searchbox' placeholder='Search for your next favorite' onChange={onChange} val />
                     <button type='submit' className='button'>Search</button>
                 </form>
 

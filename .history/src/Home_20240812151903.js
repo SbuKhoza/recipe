@@ -16,7 +16,6 @@ function Home() {
     const getData = async () => {
         const result = await Axios.get(url);
         console.log(result);
-        setQuery('')
     }
 
     const onSubmit = (event) => {
