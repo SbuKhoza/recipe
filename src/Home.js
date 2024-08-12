@@ -9,6 +9,17 @@ function Home() {
 
                 <div className='logo'><h1>HUNGRY?</h1></div>
 
+                <ul>
+                    <li>Home</li>
+                    <li>Home</li>
+                    <li>Home</li>
+                    <li>Home</li>
+                    <li>Home</li>
+                    
+                </ul>
+
+                <div className='login'><h4>Profile</h4></div>
+
             </nav>
 
             <div className='banner'>
