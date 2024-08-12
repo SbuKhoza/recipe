@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 import Axios from 'axios';
 import Recipe from './components/Recipe';
@@ -9,30 +9,40 @@ import Alert from './components/Alert';
 function Home() {
   const [query, setQuery] = useState('');
   const [recipes, setRecipes] = useState([]);
+  const [defaultRecipes, setDefaultRecipes] = useState([]); // For default recipes
   const [showModal, setShowModal] = useState(false); 
-  const [alert, setAlert] = useState(''); // Fixed spelling
+  const [alert, setAlert] = useState('');
 
   const APP_ID = "dcfe57f3";
   const APP_KEY = "395ac63c63efeb1a85786f06dd7cb113";
 
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`;
+  const searchUrl = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=10&&health=alcohol-free`;
+  const defaultUrl = `https://api.edamam.com/search?q=beer&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=5`; 
+
+  useEffect(() => {
+    // Fetch some default recipes on initial load
+    const fetchDefaultRecipes = async () => {
+      const result = await Axios.get(defaultUrl);
+      setDefaultRecipes(result.data.hits);
+    };
+
+    fetchDefaultRecipes();
+  }, []);
 
   const getData = async () => {
-    if(query !== ''){
-        const result = await Axios.get(url);
+    if (query !== '') {
+      const result = await Axios.get(searchUrl);
 
-        if(!result.data.more){
-            return setAlert('Results not found');
-        }
+      if (!result.data.more) {
+        return setAlert('Results not found');
+      }
 
-        setRecipes(result.data.hits);
-
-        setAlert('');
-        
-        setShowModal(true); 
-        setQuery('');
+      setRecipes(result.data.hits);
+      setAlert('');
+      setShowModal(true);
+      setQuery('');
     } else {
-        setAlert('Search cannot be empty');
+      setAlert('Search cannot be empty');
     }
   };
 
@@ -61,8 +71,14 @@ function Home() {
           <li>Special diet</li>
         </ul>
         <form className='searchform' onSubmit={onSubmit}>
-          {alert !== '' && <Alert alert={alert} />} {/* Fixed spelling */}
-          <input type='text' className='searchbox' placeholder='Search for your next favorite' onChange={onChange} value={query} />
+          {alert !== '' && <Alert alert={alert} />}
+          <input
+            type='text'
+            className='searchbox'
+            placeholder='Search for your next favorite'
+            onChange={onChange}
+            value={query}
+          />
           <button type='submit' className='button'>Search</button>
         </form>
         <div className='login'><h4>Profile</h4></div>
@@ -76,18 +92,25 @@ function Home() {
       </div>
 
       <div className='content'>
-        <div className='cont'>
-          {/* Search Results Modal */}
-          <Modal show={showModal} onClose={closeModal}>
-            <div className='recipes'>
-              {recipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe} />)}
-            </div>
-          </Modal>
+        <div className='recipes'>
+          {defaultRecipes.map(recipe => (
+            <Recipe key={uuidv4()} recipe={recipe} />
+          ))}
         </div>
       </div>
 
-      <div className='footer'>
-      </div>
+      
+
+      
+      <Modal show={showModal} onClose={closeModal}>
+        <div className='recipes'>
+          {recipes.map(recipe => (
+            <Recipe key={uuidv4()} recipe={recipe} />
+          ))}
+        </div>
+      </Modal>
+
+      <div className='footer'></div>
     </div>
   );
 }
