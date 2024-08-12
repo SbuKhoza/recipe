@@ -9,9 +9,10 @@ import Alert from './components/Alert';
 function Home() {
   const [query, setQuery] = useState('');
   const [recipes, setRecipes] = useState([]);
-  const [defaultRecipes, setDefaultRecipes] = useState([]); // For default recipes
+  const [defaultRecipes, setDefaultRecipes] = useState([]); 
   const [showModal, setShowModal] = useState(false); 
   const [alert, setAlert] = useState('');
+  const [currentUser, setCurrentUser] = useState(null); // For managing user session
 
   const APP_ID = "dcfe57f3";
   const APP_KEY = "395ac63c63efeb1a85786f06dd7cb113";
@@ -27,6 +28,12 @@ function Home() {
     };
 
     fetchDefaultRecipes();
+
+    // Check if the user is logged in
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      setCurrentUser(user);
+    }
   }, []);
 
   const getData = async () => {
@@ -59,6 +66,12 @@ function Home() {
     setShowModal(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('currentUser');
+    setCurrentUser(null);
+    // Redirect to the login page or show a logout message
+  };
+
   return (
     <div className='container'>
       <nav>
@@ -81,7 +94,19 @@ function Home() {
           />
           <button type='submit' className='button'>Search</button>
         </form>
-        <div className='login'><h4>Profile</h4></div>
+        <div className='login'>
+          {currentUser ? (
+            <>
+              <h4>Welcome, {currentUser.email}</h4>
+              <button onClick={handleLogout} className='button'>Logout</button>
+            </>
+          ) : (
+            <h4>
+              <a href="/login" className='button'>Login</a> | 
+              <a href="/signup" className='button'>Signup</a>
+            </h4>
+          )}
+        </div>
       </nav>
 
       <div className='banner'>
@@ -98,9 +123,6 @@ function Home() {
           ))}
         </div>
       </div>
-
-      
-
       
       <Modal show={showModal} onClose={closeModal}>
         <div className='recipes'>
