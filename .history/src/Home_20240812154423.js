@@ -52,7 +52,11 @@ function Home() {
                     <button type='submit' className='button'>Search</button>
                 </form>
 
-                
+                <div className='recipes'>
+                    {recipes ![] && recipes.map(recipe => <h2>{recipes.recipe}
+
+                    </h2>)}
+                </div>
 
                 <div className='login'><h4>Profile</h4></div>
 
@@ -63,22 +67,12 @@ function Home() {
                 <div className='bnn'>
                 <img src='banner.gif' alt='banner pic'></img>
                 </div>
-
-                <h2 onClick={getData}>Discover Your Perfect Meal</h2>
             </div>
-                
+
             <div className='content'>
-                
+                <h2 onClick={getData}>Discover Your Perfect Meal</h2>
                 <div className='cont'>
-                <div className='recipes'>
-                    {recipes !== [] && recipes.map(recipe => <h2>{recipe.recipe.label}
-
-                    </h2>)}
                 </div>
-                </div>
-
-                
-
             </div>
 
             <div className='footer'>

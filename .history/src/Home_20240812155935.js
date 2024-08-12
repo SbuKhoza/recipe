@@ -63,8 +63,6 @@ function Home() {
                 <div className='bnn'>
                 <img src='banner.gif' alt='banner pic'></img>
                 </div>
-
-                <h2 onClick={getData}>Discover Your Perfect Meal</h2>
             </div>
                 
             <div className='content'>

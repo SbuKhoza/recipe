@@ -65,6 +65,7 @@ nav ul {
 }
 
 .content {
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     grid-area: content;
@@ -74,7 +75,7 @@ nav ul {
     height: 600px;
 }
 
-.banner h2 {
+.content h2 {
     color: #00a152;
     font-size: 2rem;
 }
@@ -83,6 +84,7 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid ;
     width: 85%;
    
 }
