@@ -13,8 +13,8 @@ function Home() {
                     <li>Home</li>
                     <li>Breakfast</li>
                     <li>Lunch time</li>
-                    <li>Supper/Dinner</li>
-                    <li>Special diet</li>
+                    <li>S</li>
+                    <li>Home</li>
                     
                 </ul>
 
