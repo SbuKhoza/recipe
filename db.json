@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": "b729",
+      "email": "Sbudamalloya@gmail.com",
+      "password": "123456",
+      "favorites": [],
+      "customRecipes": []
+    }
+  ],
+  "recipes": []
+}
