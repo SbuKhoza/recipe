@@ -1,0 +1,21 @@
+
+.signn {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+form

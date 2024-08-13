@@ -1,0 +1,28 @@
+
+.signn {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: ;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+
+}
+
+form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+
+    border: 1px solid black;
+}
