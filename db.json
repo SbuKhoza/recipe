@@ -1,10 +1,168 @@
 {
   "users": [
     {
-      "id": "b729",
-      "email": "Sbudamalloya@gmail.com",
-      "password": "123456",
-      "favorites": [],
+      "id": "91cd",
+      "email": "sbudamalloya@gmail.com",
+      "password": "1234567",
+      "favorites": [
+        {
+          "label": "Zucchini Salad With Ajo Blanco Dressing & Spiced Nuts",
+          "image": "https://edamam-product-images.s3.amazonaws.com/web-img/849/84999b7ef362909763ee2858fb9dc1bc.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIF18ZMxR6sj056MPhsoq9Q%2Fsj7INigxMcvH7r4WZCY1%2FAiEA1UL2Aala1C78RuF8IyKLaiYKJfPVfiHldLREFgQw11oqwQUIuv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDHuDGpvWBTpCyJuymCqVBWFMg%2BkfSyq8eFxvwQ5YuPAHcqJTbJHd5OVkZx6%2FsD31qy27ui426jE4o%2Ff%2Bvx8uTwlNRdYknUG33LxS0bY6lCPd6VR6OQs9AK3Zaj0kvml%2BdMGvPPWgBZpGZ9IvN6mqs8zTJHtAifAvrBwYxjzTUW%2BYBRZGDoj0C8XZWMCOnE2lm4%2FjohTxM87hBavXkJarulcgagAmKigUYUuD1%2FXwUo39NRtrs8IxaE%2BzgeVdAoNeHa4mieRXZOahWL9PkZ3HWALEWID6AU0p%2BF8pkyNPhbRJwhcf3ticwAPNiAgBORv5IZGqrBBtiF0Sk391aBUTut7Qe7PndMdDxMzH9gL03SGML9r3BkPKECY8s0tr%2BAXcQCP9JmWpCbCgDCslmfOeu%2Fhkgh7X6RVLoiU9OR1BSnWV1sX0bLrAq2UwE28nURX%2BWhSFWtItqcFmmJQ5qpoBN7T07HrCWjXJUhZ%2FwPO01yJOiFNvV7btNHaVOeR%2BuVFskxm4oR%2FudhSE42Ib3cYT7AnhnslhyyfDy46RG2%2BCjmsfMMQJ9F3YuS3Nd8md8TMAKZeTkGwYVXEzgV71zsrt5oC3FTdv2et50hNQHB08tP6DQ7%2B7mXmgDtvmeKBQmVhXNSblPnxa801UQhsC9Tj9WhfwbZPz%2BIwCKsE8T3rFEFUg0FecxhYE35sqKHR1Sq4Q%2BB%2BeTNTRljhm0jMp1tv6ZSXyzUmp1NEIGaVQk1xB7y7bghC8D1WO38pz6c9SxC7rzaSAQeborMlPmN4VJa9%2F3NHrRHnNipE%2F%2F5GDCWx5oaF20qo%2Bs2WDpuxV7OHSs7ZxV2c59OHcvGUDRTR3UZgQQf2M%2FR0BkB8a5vaeQhpzT4ELx%2BlCcJvTcmYM7gT1nMqHTaYsn0Uw6ODxtQY6sQGYSsGatiZuFIhS5bAtroxx3IwXER%2BaE7FajDgyivzDBwKo%2BEtjKebNDiLHtQk7cF0NbXkeo25aRg%2B85hj2qNLGvA3k8wUo16eZQ5Y4xF3T2wUYvaJrRHnYm%2F8Xi0KZEbjqM1Plc%2FmeHA0yUAUu4UU2CL3gSQdomYgDOPVKTWL96pgDjI27gghGZ56cN1le%2Bh3x4eYcOC%2FtB4VELpZ0hMG2LaYnceNnH8DGraVla%2BXEdyw%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240814T100714Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFIP24NPO7%2F20240814%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ab7543da1ddeb480ab4fe962f83cd0feef5dce7108f8a622eb8ecc80d34d28b2",
+          "url": "https://www.epicurious.com/recipes/food/views/zucchini-salad-with-ajo-blanco-dressing-spiced-nuts-56389847",
+          "ingredients": [
+            {
+              "text": "3 to 4 slices white bread, crusts removed",
+              "quantity": 3.5,
+              "measure": "slice",
+              "food": "white bread",
+              "weight": 101.5,
+              "foodCategory": "bread, rolls and tortillas",
+              "foodId": "food_b84uwy0a90fr35b87s94xau97llp",
+              "image": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg"
+            },
+            {
+              "text": "3/4 cup blanched almonds, roughly chopped",
+              "quantity": 0.75,
+              "measure": "cup",
+              "food": "blanched almonds",
+              "weight": 108.75,
+              "foodCategory": "plant-based protein",
+              "foodId": "food_a10bnd0bmm2on6alob9j5btgu42u",
+              "image": "https://www.edamam.com/food-img/a2b/a2b45160204372c7fc68667dd5bf29a3.jpg"
+            },
+            {
+              "text": "1 garlic clove, peeled",
+              "quantity": 1,
+              "measure": "clove",
+              "food": "garlic",
+              "weight": 3,
+              "foodCategory": "vegetables",
+              "foodId": "food_avtcmx6bgjv1jvay6s6stan8dnyp",
+              "image": "https://www.edamam.com/food-img/6ee/6ee142951f48aaf94f4312409f8d133d.jpg"
+            },
+            {
+              "text": "1 teaspoon sherry vinegar",
+              "quantity": 1,
+              "measure": "teaspoon",
+              "food": "sherry vinegar",
+              "weight": 5,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_brtd7beak7p11iastcbh1a6wyz3q",
+              "image": "https://www.edamam.com/food-img/5f6/5f69b84c399d778c4728e9ab4f8065a2.jpg"
+            },
+            {
+              "text": "1 cup extra-virgin olive oil",
+              "quantity": 1,
+              "measure": "cup",
+              "food": "extra-virgin olive oil",
+              "weight": 216,
+              "foodCategory": "Oils",
+              "foodId": "food_b1d1icuad3iktrbqby0hiagafaz7",
+              "image": "https://www.edamam.com/food-img/4d6/4d651eaa8a353647746290c7a9b29d84.jpg"
+            },
+            {
+              "text": "1/3 cup ice-cold water",
+              "quantity": 0.3333333333333333,
+              "measure": "cup",
+              "food": "water",
+              "weight": 78.86274549999999,
+              "foodCategory": "water",
+              "foodId": "food_a99vzubbk1ayrsad318rvbzr3dh0",
+              "image": "https://www.edamam.com/food-img/5dd/5dd9d1361847b2ca53c4b19a8f92627e.jpg"
+            },
+            {
+              "text": "3 medium zucchinis, cut into random pieces",
+              "quantity": 3,
+              "measure": "<unit>",
+              "food": "zucchinis",
+              "weight": 588,
+              "foodCategory": "vegetables",
+              "foodId": "food_avpihljbuwpd8ibbmahcabaros5s",
+              "image": "https://www.edamam.com/food-img/f63/f637280594e4a731eccc1199194a8847.jpg"
+            },
+            {
+              "text": "1/2 ounce hazelnuts, chopped",
+              "quantity": 0.5,
+              "measure": "ounce",
+              "food": "hazelnuts",
+              "weight": 14.1747615625,
+              "foodCategory": "plant-based protein",
+              "foodId": "food_ahshk5kaw2j86lbtd1akiaxbiwc2",
+              "image": "https://www.edamam.com/food-img/136/13615074edcc12bf37a30987ebfec6dc.jpg"
+            },
+            {
+              "text": "1/2 ounce blanched almonds, chopped",
+              "quantity": 0.5,
+              "measure": "ounce",
+              "food": "blanched almonds",
+              "weight": 14.1747615625,
+              "foodCategory": "plant-based protein",
+              "foodId": "food_a10bnd0bmm2on6alob9j5btgu42u",
+              "image": "https://www.edamam.com/food-img/a2b/a2b45160204372c7fc68667dd5bf29a3.jpg"
+            },
+            {
+              "text": "1/2 ounce walnuts, chopped",
+              "quantity": 0.5,
+              "measure": "ounce",
+              "food": "walnuts",
+              "weight": 14.1747615625,
+              "foodCategory": "plant-based protein",
+              "foodId": "food_acqkmojaw4fltga9jad8mb85u9z2",
+              "image": "https://www.edamam.com/food-img/624/6243d320d94b15ebaece2634cc5b40c5.jpg"
+            },
+            {
+              "text": "Pinch of smoked paprika",
+              "quantity": 1,
+              "measure": "pinch",
+              "food": "smoked paprika",
+              "weight": 0.1416666668486988,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_a9dpcnjb883g67b3lq82ca0421ql",
+              "image": "https://www.edamam.com/food-img/474/474d63763b9d8b9da98c5f43a114648c.jpg"
+            },
+            {
+              "text": "1 small handful flat-leaf (Italian) parsley, washed and chopped",
+              "quantity": 1,
+              "measure": "handful",
+              "food": "parsley",
+              "weight": 5.625,
+              "foodCategory": "vegetables",
+              "foodId": "food_b244pqdazw24zobr5vqu2bf0uid8",
+              "image": "https://www.edamam.com/food-img/46a/46a132e96626d7989b4d6ed8c91f4da0.jpg"
+            },
+            {
+              "text": "1 small handful mint, washed and chopped",
+              "quantity": 1,
+              "measure": "handful",
+              "food": "mint",
+              "weight": 8.550000000144525,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_bxl4xoga4owdkeay51sy8anesxj5",
+              "image": "https://www.edamam.com/food-img/7f0/7f01cc4f71c5c6ad31051ed74b9c058b.jpg"
+            },
+            {
+              "text": "Freshly ground black pepper",
+              "quantity": 0,
+              "measure": null,
+              "food": "black pepper",
+              "weight": 3.4738610905634797,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_b6ywzluaaxv02wad7s1r9ag4py89",
+              "image": "https://www.edamam.com/food-img/c6e/c6e5c3bd8d3bc15175d9766971a4d1b2.jpg"
+            },
+            {
+              "text": "Salt to taste",
+              "quantity": 0,
+              "measure": null,
+              "food": "Salt",
+              "weight": 6.947722181126959,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_btxz81db72hwbra2pncvebzzzum9",
+              "image": "https://www.edamam.com/food-img/694/6943ea510918c6025795e8dc6e6eaaeb.jpg"
+            }
+          ]
+        }
+      ],
       "customRecipes": []
     }
   ],

@@ -1,0 +1,247 @@
+.container {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 5fr 15fr 15fr 5fr;
+    grid-template-areas: 
+        "nav nav nav nav"
+        "logout logout logout logout"
+        "banner banner banner banner"
+        "head head head head"
+        "content content content content"
+        "footer footer footer footer";
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    grid-area: nav;
+    background-color: #00a152;
+    height: 100px;
+    align-items: center;
+    padding-left: 20px;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    font-size: medium;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Dropdown for mobile */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100px; /* Adjust as needed */
+    right: 20px; /* Align with hamburger */
+    background-color: #00a152;
+    width: 150px;
+    z-index: 1;
+    list-style-type: none;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #006f41;
+}
+
+.banner {
+    display: flex;
+    grid-area: banner;
+    margin-top: 30px;
+    width: 100%;
+    align-self: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.bnn {
+    width: 85%;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+    align-self: center;
+}
+
+.head {
+    display: flex;
+    grid-area: head;
+    justify-content: center;
+}
+
+.head h2 {
+    color: #00a152;
+    font-size: 2rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    grid-area: content;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.recipe {
+    width: 300px;
+    border: 1px solid #00a152;
+    box-sizing: border-box;
+    margin: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.recipe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.recipe h2 {
+    color: #00a152;
+    font-size: 1rem;
+}
+
+.recipe button {
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: #00a152;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#fav {
+    margin-top: 10px;
+    background-color: white;
+    color: #00a152;
+    border: 1px solid #00a152;
+}
+
+.footer {
+    display: flex;
+    grid-area: footer;
+    height: 250px;
+}
+
+.logo {
+    width: 10%;
+}
+
+.logo h1 {
+    color: white;
+    width: 100%;
+}
+
+.logout {
+    grid-area: logout;
+    width: 92.5%;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 30px;
+}
+
+.logout button {
+    background-color: #00a152;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.login a {
+    color: white;
+}
+
+.login h4 {
+    color: white;
+}
+
+.searchform input {
+    height: 40px;
+    width: 200px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+}
+
+.searchform button {
+    height: 40px;
+    width: 55px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    background-color: #fcfcfc;
+}
+
+/* Media query for mobile view */
+@media only screen and (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger menu on mobile */
+    }
+
+    nav ul {
+        display: none; 
+    }
+
+    .dropdown-content {
+        display: block;
+    }
+}

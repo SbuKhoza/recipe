@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+
+    },
+    {
+      "id": "91cd",
+      "email": "sbudamalloya@gmail.com",
+      "password": "1234567",
+      "favorites": [],
+      "customRecipes": [
+        {
+          
+        },
+        {
+         
+        }
+      ]
+    }
+  ],
+  "recipes": []
+}
