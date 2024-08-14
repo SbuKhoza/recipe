@@ -23,8 +23,9 @@ nav {
     background-color: #00a152;
     height: 100px;
     align-items: center;
-    padding-left: 20px;
-    justify-content:space-around;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content:space-between;
     box-sizing: border-box;
 }
 
@@ -41,7 +42,7 @@ nav a {
     color: white;
 }
 
-/* Hamburger Menu */
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -55,12 +56,12 @@ nav a {
     background-color: white;
 }
 
-/* Dropdown for mobile */
+
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100px; /* Adjust as needed */
-    right: 20px; /* Align with hamburger */
+    top: 100px; 
+    right: 20px; 
     background-color: #00a152;
     width: 150px;
     z-index: 1;
@@ -145,17 +146,26 @@ nav a {
 .recipes {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    gap: 10px;
+    justify-content:center;
     align-items: center;
     width: 100%;
 }
 
+.recp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    justify-content:center;
+    align-items: center;
+    width: 90%; 
+}
+
 .recipe {
-    width: 300px;
+    width: 250px;
     border: 1px solid #00a152;
     box-sizing: border-box;
-    margin: 20px;
+    margin: 10px;
     text-align: center;
     border-radius: 8px;
 }
@@ -310,10 +320,21 @@ nav a {
         display: block;
     }
 
-    .login h4 {
-        color: white;
-        font-size: 0.5rem;
+    #login {
+        display: none;
+        /* color: white;
+        font-size: 0.5rem; */
     }
 
-    
+    .head h2 {
+        color: #00a152;
+        font-size: 1rem;
+    }
+
+    .sform {
+        align-items: center;
+        justify-content: center;
+    }
 }
+
+

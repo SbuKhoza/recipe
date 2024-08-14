@@ -24,7 +24,7 @@ function Home() {
   const APP_KEY = "395ac63c63efeb1a85786f06dd7cb113";
 
   const searchUrl = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=10&&health=alcohol-free`;
-  const defaultUrl = `https://api.edamam.com/search?q=random&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=8`;
+  const defaultUrl = `https://api.edamam.com/search?q=south%20african&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=10`;
 
   useEffect(() => {
     const fetchDefaultRecipes = async () => {
@@ -158,7 +158,7 @@ function Home() {
             </>
             
           ) : (
-            <h4>
+            <h4 id='login'>
               <Link to="/login" className='button'>Login</Link> | 
               <Link to="/signup" className='button'>Signup</Link>
             </h4>
@@ -247,9 +247,11 @@ function Home() {
           )}
         </div>
         <div className='recipes'>
+          <div className='recp'>  
           {defaultRecipes.map(recipe => (
             <Recipe key={uuidv4()} recipe={recipe} />
           ))}
+          </div>
         </div>
       </div>
       

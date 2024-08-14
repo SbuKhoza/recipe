@@ -2,24 +2,29 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import Axios from 'axios';
 import Recipe from './components/Recipe';
-import Modal from './components/Modal'; 
+import Modal from './components/Modal';
 import { v4 as uuidv4 } from 'uuid';
 import Alert from './components/Alert';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import RecipeForm from './components/RecipeForm';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Home() {
+function SpecialDiet() {
   const [query, setQuery] = useState('');
   const [recipes, setRecipes] = useState([]);
-  const [defaultRecipes, setDefaultRecipes] = useState([]); 
-  const [showModal, setShowModal] = useState(false); 
+  const [defaultRecipes, setDefaultRecipes] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const [alert, setAlert] = useState('');
   const [currentUser, setCurrentUser] = useState(null);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [showRecipeForm, setShowRecipeForm] = useState(false);
+  const [recipeToEdit, setRecipeToEdit] = useState(null);
+  const navigate = useNavigate();
 
   const APP_ID = "dcfe57f3";
   const APP_KEY = "395ac63c63efeb1a85786f06dd7cb113";
 
   const searchUrl = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=10&&health=alcohol-free`;
-  const defaultUrl = `https://api.edamam.com/search?q=Diet&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=8`; 
+  const defaultUrl = `https://api.edamam.com/search?q=special%20diet&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=10`;
 
   useEffect(() => {
     const fetchDefaultRecipes = async () => {
@@ -68,12 +73,74 @@ function Home() {
   const handleLogout = () => {
     localStorage.removeItem('currentUser');
     setCurrentUser(null);
+    navigate('/');
+  };
+
+  const openRecipeForm = (recipe = null) => {
+    setRecipeToEdit(recipe);
+    setShowRecipeForm(true);
+  };
+
+  const closeRecipeForm = () => {
+    setShowRecipeForm(false);
+    setRecipeToEdit(null);
+  };
+
+  const saveRecipe = async (newRecipe) => {
+    let updatedUser;
+    if (recipeToEdit) {
+      // Edit existing recipe
+      updatedUser = {
+        ...currentUser,
+        customRecipes: currentUser.customRecipes.map(r =>
+          r.id === recipeToEdit.id ? { ...r, ...newRecipe } : r
+        )
+      };
+    } else {
+      // Add new recipe
+      const recipeWithId = { ...newRecipe, id: uuidv4() };
+      updatedUser = {
+        ...currentUser,
+        customRecipes: [...currentUser.customRecipes, recipeWithId]
+      };
+    }
+
+    try {
+      await Axios.put(`http://localhost:3001/users/${currentUser.id}`, updatedUser);
+      localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+      setCurrentUser(updatedUser);
+      alert('Recipe saved!');
+      closeRecipeForm();
+    } catch (error) {
+      console.error('Error saving recipe:', error);
+    }
+  };
+
+  const deleteRecipe = async (recipeId) => {
+    const updatedUser = {
+      ...currentUser,
+      customRecipes: currentUser.customRecipes.filter(r => r.id !== recipeId)
+    };
+
+    try {
+      await Axios.put(`http://localhost:3001/users/${currentUser.id}`, updatedUser);
+      localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+      setCurrentUser(updatedUser);
+      alert('Recipe deleted!');
+    } catch (error) {
+      console.error('Error deleting recipe:', error);
+    }
+  };
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
   };
 
   return (
     <div className='container'>
       <nav>
         <div className='logo'><h1>HUNGRY?</h1></div>
+        
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/breakfast">Breakfast</Link></li>
@@ -81,31 +148,59 @@ function Home() {
           <li><Link to="/dinner">Supper/Dinner</Link></li>
           <li><Link to="/special-diet">Special diet</Link></li>
         </ul>
-        <form className='searchform' onSubmit={onSubmit}>
-          {alert !== '' && <Alert alert={alert} />}
-          <input
-            type='text'
-            className='searchbox'
-            placeholder='Search for your next favorite'
-            onChange={onChange}
-            value={query}
-          />
-          <button type='submit' className='button'>Search</button>
-        </form>
-        <div className='login'>
-          {currentUser ? (
+        {currentUser ? (
             <>
+            
+            <div className='login'>
               <h4>Welcome, {currentUser.email}</h4>
-              <button onClick={handleLogout} className='button'>Logout</button>
+            </div>
+
             </>
+            
           ) : (
-            <h4>
+            <h4 id='login'>
               <Link to="/login" className='button'>Login</Link> | 
               <Link to="/signup" className='button'>Signup</Link>
             </h4>
           )}
+
+        <div className='hamburger' onClick={toggleDropdown}>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
+
+        {dropdownVisible && (
+          <div className='dropdown-content'>
+            <Link to="/">Home</Link>
+            <Link to="/breakfast">Breakfast</Link>
+            <Link to="/lunch">Lunch time</Link>
+            <Link to="/dinner">Supper/Dinner</Link>
+            <Link to="/special-diet">Special diet</Link>
+            {currentUser ? (
+              <>
+                <span>Welcome, {currentUser.email}</span>
+                <button onClick={handleLogout} className='button'>Logout</button>
+                <button onClick={() => openRecipeForm()} className='button'>Add Your Recipe</button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className='button'>Login</Link> 
+                <Link to="/signup" className='button'>Signup</Link>
+              </>
+            )}
+          </div>
+        )}
       </nav>
+
+      <div className='logout'>
+        {currentUser && (
+          <>
+            <button onClick={handleLogout} className='button'>Logout</button>
+            <button onClick={() => openRecipeForm()} className='button'>Add Your Recipe</button>
+          </>
+        )}
+      </div>
 
       <div className='banner'>
         <div className='bnn'>
@@ -115,11 +210,48 @@ function Home() {
 
       <div className='head'><h2>Discover Your Perfect Meal</h2></div>
 
+      <div className='searchfunction'>  
+        <div className='sform'> 
+          <form className='searchform' onSubmit={onSubmit}>
+            {alert !== '' && <Alert alert={alert} />}
+            <input
+              type='text'
+              className='searchbox'
+              placeholder='Search for your next favorite'
+              onChange={onChange}
+              value={query}
+            />
+            <button type='submit' className='button'>Search</button>
+          </form>
+        </div>
+      </div>
+
       <div className='content'>
+        <div className='mydash'>
+          {currentUser?.customRecipes?.map(recipe => (
+            <div key={recipe.id}>
+              <h3>{recipe.name}</h3>
+              <p>{recipe.ingredients}</p>
+              <p>{recipe.instructions}</p>
+              <button onClick={() => openRecipeForm(recipe)}>Edit</button>
+              <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
+            </div>
+          ))}
+          
+          {showRecipeForm && (
+            <RecipeForm 
+              onSave={saveRecipe} 
+              onClose={closeRecipeForm} 
+              initialRecipe={recipeToEdit} 
+            />
+          )}
+        </div>
         <div className='recipes'>
+          <div className='recp'>  
           {defaultRecipes.map(recipe => (
             <Recipe key={uuidv4()} recipe={recipe} />
           ))}
+          </div>
         </div>
       </div>
       
@@ -136,4 +268,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default SpecialDiet;
