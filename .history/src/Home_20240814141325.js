@@ -151,12 +151,8 @@ function Home() {
         {currentUser ? (
             <>
             
-            <div className='login'>
               <h4>Welcome, {currentUser.email}</h4>
-            </div>
-
             </>
-            
           ) : (
             <h4>
               <Link to="/login" className='button'>Login</Link> | 

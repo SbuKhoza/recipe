@@ -315,5 +315,29 @@ nav a {
         font-size: 0.5rem;
     }
 
+    .searchform {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .searchform input {
+        height: 40px;
+        width: 200px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border: 1px solid #00a152;
+    }
     
+    .searchform button {
+        height: 52px;
+        width: 55px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: 1px solid #00a152;
+        background-color: #fcfcfc;
+    }
 }

@@ -150,11 +150,8 @@ function Home() {
         </ul>
         {currentUser ? (
             <>
-            
             <div className='login'>
               <h4>Welcome, {currentUser.email}</h4>
-            </div>
-
             </>
             
           ) : (

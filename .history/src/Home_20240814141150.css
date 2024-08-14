@@ -229,7 +229,6 @@ nav a {
 
 .login h4 {
     color: white;
-    font-size: 0.8rem;
 }
 
 .searchform input {
@@ -310,10 +309,5 @@ nav a {
         display: block;
     }
 
-    .login h4 {
-        color: white;
-        font-size: 0.5rem;
-    }
 
-    
 }
